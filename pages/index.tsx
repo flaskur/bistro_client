@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import React from 'react';
 import Navbar from '../components/navbar';
 import Sample from '../components/sample';
 
