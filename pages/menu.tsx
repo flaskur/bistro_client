@@ -1,16 +1,17 @@
 import { GetStaticProps } from "next";
+import React from "react";
+import MenuItem from "../components/menu-item";
+import MenuItemProps from "../shared/menu-item-props";
 
 const Menu = ({message, menu}: any) => {
 	const renderMenu = () => {
-		console.log('called render');
-		return menu.map((food: any) => {
-			return <h3 key={food.food_id}>{food.name}</h3>
+		return menu.map((menuItem: MenuItemProps) => {
+			return <MenuItem {...menuItem} />;
 		});
 	};
 	
 	return (
 		<div>
-			<h1>menu</h1>
 			<h2>{message}</h2>
 			{renderMenu()}
 		</div>
@@ -18,7 +19,7 @@ const Menu = ({message, menu}: any) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-	const result = await fetch('http://localhost:3001/menu');
+	const result = await fetch('http://localhost:3001/menu')
 	const data = await result.json();
 
 	return {
