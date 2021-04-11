@@ -5,7 +5,7 @@ import MenuItemProps from "../shared/menu-item-props";
 
 const Menu = ({message, menu}: any) => {
 	// NECESSARY TO COMBINE SIZE/PRICE FOR SAME NAME FOODS
-	const flattenMenu = () => {
+	const mapMenu = () => {
 		const existingFood = new Set();
 		const newMenu = new Map();
 
@@ -34,17 +34,21 @@ const Menu = ({message, menu}: any) => {
 		return newMenu;
 	};
 
-	console.log('hello');
-	console.log(flattenMenu());
-	
 	const clearCart = () => {
 		localStorage.setItem('cart', JSON.stringify([]));
 	};
 	
 	const renderMenu = () => {
-		return menu.map((menuItem: MenuItemProps) => {
-			return <MenuItem key={menuItem.foodId} {...menuItem} />;
+		const renderedMenu: any[] = []; // should be MenuItem[], maybe React.Element[]
+
+		// CANNOT RETURN INSIDE OF JS FOREACH
+		mapMenu().forEach((value, key) => {
+			renderedMenu.push(
+				<MenuItem key={key} name={key} {...value} />
+			);
 		});
+
+		return renderedMenu;
 	};
 	
 	return (
