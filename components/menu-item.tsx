@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuItemProps from '../shared/menu-item-props';
+import MenuItemModal from './menu-item-modal';
 
 // on click of the menu item card, it will open a modal that allows you to select quantity from a counter, and one of the options if there are multiple, also special comments
 const MenuItem = (menuItem: MenuItemProps) => {
-	let { name, category, spicy, description } = menuItem; 
+	const [showModal, setShowModal] = useState(false);
+	
+	let { name, category, spicy, description, options } = menuItem; 
 	
 	// cart item should not be exact as food item, you need to include quantity, etc.
 	// cart items only need foodId, quantity, and comment, but you should include name etc for checkout page rendering w/o asking backend to decipher foodId
@@ -53,14 +56,33 @@ const MenuItem = (menuItem: MenuItemProps) => {
 		for (let option of menuItem.options) {
 			console.log(option);
 		}
+
+		setShowModal(true);
+	};
+
+	const closeModal = () => {
+		console.log('closing the modal'); // should this be in an effect hook to rerender?
+		setShowModal(false);
 	};
 	
+	// modal should now render the options, quantity, and comments, then add to cart function that we already made
 	return (
-		<div key={name} onClick={openModal}>
-			<p>{name}</p>
-			<p>{category}</p>
-			<p>{spicy.toString()}</p>
-			<p>{description}</p>
+		<div>
+			<MenuItemModal 
+				showModal={showModal} 
+				closeModal={closeModal}
+				name={name}
+				category={category}
+				spicy={spicy.toString()}
+				description={description}
+				options={options}
+			/>
+			<div key={name} onClick={openModal}>
+				<p>{name}</p>
+				<p>{category}</p>
+				<p>{spicy.toString()}</p>
+				<p>{description}</p>
+			</div>
 		</div>
 	);
 };
