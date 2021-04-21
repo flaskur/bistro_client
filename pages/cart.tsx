@@ -72,6 +72,7 @@ const Cart = () => {
 			}
 
 			<Link href="/checkout">
+				{/* set disabled true if cart is empty */}
 				<button>Checkout</button>
 			</Link>
 		</div>
