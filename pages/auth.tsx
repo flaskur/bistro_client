@@ -1,5 +1,6 @@
 import React from 'react';
 import {useRouter} from 'next/router';
+import Navbar from '../components/navbar';
 
 const Auth = () => {
 	const router = useRouter();
@@ -16,6 +17,7 @@ const Auth = () => {
 	
 	return (
 		<div>
+			<Navbar isAuth={true} />
 			<p>this is the auth page</p>
 
 			<button onClick={login}>login</button>

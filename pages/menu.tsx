@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import React from "react";
 import MenuItem from "../components/menu-item";
+import Navbar from "../components/navbar";
 import MenuItemProps from "../shared/menu-item-props";
 
 const Menu = ({message, menu}: any) => {
@@ -53,6 +54,7 @@ const Menu = ({message, menu}: any) => {
 	
 	return (
 		<div>
+			<Navbar isAuth={true} />
 			<button onClick={clearCart}>Clear Cart</button>
 			<h2>{message}</h2>
 			{renderMenu()}

@@ -6,7 +6,7 @@ const Navbar = ({isAuth}: NavbarProps) => {
 	return (
 		<div className="fixed top-0 left-0 flex items-center justify-between w-full h-16 px-5 bg-red-300 bg-opacity-50 rounded-b-xl">
 			<div className="">
-				<Link href="/menu">
+				<Link href="/">
 					<img className="cursor-pointer h-7" src="vercel.svg" alt="LOGO"/>
 				</Link>
 			</div>
@@ -21,7 +21,11 @@ const Navbar = ({isAuth}: NavbarProps) => {
 				{
 					isAuth 
 					?
-					<UserCircleIcon className="mr-2 cursor-pointer h-7" />
+					<Link href="/profile">
+						<div>
+							<UserCircleIcon className="mr-2 cursor-pointer h-7" />
+						</div>
+					</Link>
 					:
 					<Link href="/auth">
 						<div>
