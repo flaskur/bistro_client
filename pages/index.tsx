@@ -1,12 +1,24 @@
 import { GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import Sample from '../components/sample';
 
 export default function Home({message}: any) {
+	const [isAuth, setIsAuth] = useState(false);
+	
+	useEffect(() => {
+		// you should probably verify the token is legit and not expired
+		let tokenExists = false;
+		if (localStorage.getItem('token')) {
+			tokenExists = true;
+		}
+		setIsAuth(tokenExists);
+	}, []);
+
 	return (
 		<div>
 			<h1>home</h1>
-			<Navbar text="banana" />
+			<Navbar isAuth={isAuth} />
 			<Sample message={message}/>
 		</div>
 	);
