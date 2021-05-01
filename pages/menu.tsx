@@ -51,13 +51,77 @@ const Menu = ({message, menu}: any) => {
 
 		return renderedMenu;
 	};
+
+	const renderCategoryMenu = (category: string) => {
+		const renderedMenu: any[] = [];
+
+		mapMenu().forEach((value, key) => {
+			console.log(category);
+			
+			if (value.category === category) {
+				renderedMenu.push(
+					<MenuItem key={key} name={key} {...value} />
+				);
+			}
+		});
+
+		return renderedMenu;
+	};
 	
 	return (
-		<div>
+		<div className="flex flex-col items-center pt-20 border-2 border-black">
 			<Navbar isAuth={true} />
 			<button onClick={clearCart}>Clear Cart</button>
 			<h2>{message}</h2>
-			{renderMenu()}
+
+			<p className="text-3xl font-extrabold">Soup</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('SOUP')}
+			</div>
+			<p className="text-3xl font-extrabold">Appetizer</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('APPETIZER')}
+			</div>
+			<p className="text-3xl font-extrabold">Salad</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('SALAD')}
+			</div>
+			<p className="text-3xl font-extrabold">Chinese</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('CHINESE')}
+			</div>
+			<p className="text-3xl font-extrabold">Thai</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('Thai')}
+			</div>
+			<p className="text-3xl font-extrabold">Rice</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('RICE')}
+			</div>
+			<p className="text-3xl font-extrabold">Noodle</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('NOODLE')}
+			</div>
+			<p className="text-3xl font-extrabold">Combo</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('COMBO')}
+			</div>
+			<p className="text-3xl font-extrabold">Hibachi</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('HIBACHI')}
+			</div>
+			<p className="text-3xl font-extrabold">Vegetable</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('VEGETABLE')}
+			</div>
+			<p className="text-3xl font-extrabold">Tray</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('TRAY')}
+			</div>
+			<p className="text-3xl font-extrabold">Curry</p>
+			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('CURRY')}
+			</div>
 		</div>
 	);
 };

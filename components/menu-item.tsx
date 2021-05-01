@@ -21,6 +21,23 @@ const MenuItem = (menuItem: MenuItemProps) => {
 		console.log('closing the modal'); // should this be in an effect hook to rerender?
 		setShowModal(false);
 	};
+
+	const renderPrices = () => {
+		console.log(options);
+		let prices = '';
+		let flag = false;
+
+		options.map((option) => {
+			if (flag === true) {
+				prices += `/\$${option.price}`;
+			} else {
+				flag = true;
+				prices += `\$${option.price}`
+			}
+		});
+
+		return <p>{prices}</p>
+	};
 	
 	// modal should now render the options, quantity, and comments, then add to cart function that we already made
 	return (
@@ -34,11 +51,13 @@ const MenuItem = (menuItem: MenuItemProps) => {
 				description={description}
 				options={options}
 			/>
-			<div key={name} onClick={openModal}>
-				<p>{name}</p>
-				<p>{category}</p>
-				<p>{spicy.toString()}</p>
-				<p>{description}</p>
+			<div key={name} onClick={openModal} className="flex items-center justify-between h-32 gap-24 p-5 border-2 border-gray-100 rounded-md hover:bg-gray-50">
+				<div>
+					<p>{name}</p>
+				</div>
+				{
+					renderPrices()
+				}
 			</div>
 		</div>
 	);
