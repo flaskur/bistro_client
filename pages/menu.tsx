@@ -69,57 +69,56 @@ const Menu = ({message, menu}: any) => {
 	};
 	
 	return (
-		<div className="flex flex-col items-center pt-20 border-2 border-black">
+		<div className="flex flex-col items-center pt-20">
 			<Navbar isAuth={true} />
 			<button onClick={clearCart}>Clear Cart</button>
-			<h2>{message}</h2>
 
-			<p className="text-3xl font-extrabold">Soup</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Soup</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('SOUP')}
 			</div>
-			<p className="text-3xl font-extrabold">Appetizer</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Appetizer</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('APPETIZER')}
 			</div>
-			<p className="text-3xl font-extrabold">Salad</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Salad</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('SALAD')}
 			</div>
-			<p className="text-3xl font-extrabold">Chinese</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Chinese</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('CHINESE')}
 			</div>
-			<p className="text-3xl font-extrabold">Thai</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
-				{renderCategoryMenu('Thai')}
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Thai</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
+				{renderCategoryMenu('THAI')}
 			</div>
-			<p className="text-3xl font-extrabold">Rice</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Rice</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('RICE')}
 			</div>
-			<p className="text-3xl font-extrabold">Noodle</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Noodle</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('NOODLE')}
 			</div>
-			<p className="text-3xl font-extrabold">Combo</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Combo</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('COMBO')}
 			</div>
-			<p className="text-3xl font-extrabold">Hibachi</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Hibachi</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('HIBACHI')}
 			</div>
-			<p className="text-3xl font-extrabold">Vegetable</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Vegetable</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('VEGETABLE')}
 			</div>
-			<p className="text-3xl font-extrabold">Tray</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Tray</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('TRAY')}
 			</div>
-			<p className="text-3xl font-extrabold">Curry</p>
-			<div className="grid grid-cols-1 border-2 border-black sm:grid-cols-2 gap-x-4 gap-y-4">
+			<p className="mb-2 text-3xl font-extrabold border-b-2 border-black">Curry</p>
+			<div className="grid grid-cols-1 mb-10 lg:grid-cols-2 gap-x-4 gap-y-4">
 				{renderCategoryMenu('CURRY')}
 			</div>
 		</div>

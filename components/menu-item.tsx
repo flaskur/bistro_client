@@ -19,6 +19,8 @@ const MenuItem = (menuItem: MenuItemProps) => {
 
 	const closeModal = () => {
 		console.log('closing the modal'); // should this be in an effect hook to rerender?
+		document.body.style.overflowY = 'auto';
+		document.body.style.marginRight = '0';
 		setShowModal(false);
 	};
 
@@ -51,7 +53,7 @@ const MenuItem = (menuItem: MenuItemProps) => {
 				description={description}
 				options={options}
 			/>
-			<div key={name} onClick={openModal} className="flex items-center justify-between h-32 gap-24 p-5 border-2 border-gray-100 rounded-md hover:bg-gray-50">
+			<div key={name} onClick={openModal} className="flex items-center justify-between h-32 p-5 border-2 border-gray-100 rounded-md hover:bg-gray-50 w-112">
 				<div>
 					<p>{name}</p>
 				</div>

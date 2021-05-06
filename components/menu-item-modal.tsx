@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Option from '../shared/option';
+import { XIcon, FireIcon } from '@heroicons/react/solid';
 
 const MenuItemModal = ({showModal, closeModal, name, category, description, spicy, options}: MenuItemModalProps) => {
 	const [selectedOption, setSelectedOption] = useState<null | Option>(null);
@@ -63,44 +64,60 @@ const MenuItemModal = ({showModal, closeModal, name, category, description, spic
 		setSelectedOption(option);
 		console.log('selected option is', option.foodId, option.price, option.size);
 	};
+
+	const preventScrolling = () => {
+		document.body.style.overflowY = 'hidden';
+		document.body.style.marginRight = '15px';
+		return true;
+	};
 	
 	return (
-		<div style={{backgroundColor: 'lightblue'}}>
+		<div>
 			{
 				showModal &&
-				<div>
-					<button onClick={closeModal}>Close XXX</button>
-					<p>{name}</p>
-					<p>{category}</p>
-					<p>{description}</p>
-					<p>{spicy}</p>
+				preventScrolling() &&
+				<>
+					<div onClick={closeModal} className="fixed top-0 left-0 w-screen h-screen bg-gray-300 bg-opacity-50"></div>
+					<div className="fixed z-10 max-w-full max-h-full p-5 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-black top-1/2 left-1/2 w-140 h-140">
+						<button onClick={closeModal}>
+							<XIcon className="w-5 h-5" />
+						</button>
+						<p>{name}</p>
+						<p>{category}</p>
+						<p>{description}</p>
+						<p>
+							{spicy === 'true' && <FireIcon className="w-5 h-5" />}
+						</p>
 
-					<div>
-						{
-							options.map(option => {
-								const {foodId, price, size} = option;
-								return (
-									<div 
+						<p>Please Select A Valid Size</p>
+
+						<div>
+							{
+								options.map(option => {
+									const {foodId, price, size} = option;
+									return (
+										<div 
 										key={foodId} 
 										onClick={() => handleOptionSelect(option)} 
 										style={{backgroundColor: selectedOption && selectedOption.foodId === foodId ? 'lightgray' : 'white'}}
-									>
-										<p>{foodId}</p>
-										<p>{price}</p>
-										<p>{size}</p>
-									</div>
-								);
-							})
-						}
+										>
+											<p>{foodId}</p>
+											<p>{price}</p>
+											<p>{size}</p>
+										</div>
+									);
+								})
+							}
+						</div>
+
+						{/* convert to number dropdown */}
+						<input type="number" value={quantity} min={1} max={10} onChange={(e) => {setQuantity(parseInt(e.target.value))}}/>
+
+						<input type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
+
+						<button onClick={handleAddItem}>Add To Cart</button>
 					</div>
-
-					{/* convert to number dropdown */}
-					<input type="number" value={quantity} min={1} max={10} onChange={(e) => {setQuantity(parseInt(e.target.value))}}/>
-
-					<input type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
-
-					<button onClick={handleAddItem}>Add To Cart</button>
-				</div>
+				</>
 			}
 		</div>
 	);
